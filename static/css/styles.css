@@ -1,6 +1,18 @@
 body {
     background-image: url("/static/imgs/wood-background.jpg");
 }
+.card {
+    width: 69px;
+    height: 94px;
+    background-image: url('/static/imgs/cards.png');
+    position: absolute;
+    cursor: pointer;
+    transform: rotate(0deg);
+    background-position: -69px 0px;
+    z-index: 1138;
+    top: 303px;
+    left: 464px;
+}
 
 .welcome {
     text-align: center;
