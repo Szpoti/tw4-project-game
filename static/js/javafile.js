@@ -3,4 +3,6 @@ document.getElementById("app").innerHTML = `
 <p>new branch test</p>
 <p>test-szpoti</p>
 <p> Noémi! <p>
-
+<p>szpoti dev</p>
+<p>szpoti dev2</p>
+`;
