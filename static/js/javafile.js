@@ -1,11 +1,11 @@
 let xCord = 50, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
-for (j = 0; j < 4; j++) {
-    for (i = 0; i < 13; i++) {
+for (row = 0; row < 4; row++) {
+    for (column = 0; column < 13; column++) {
         xPos += 69;
         xCord += 80;
-        const card = `<div class="card" id="card-${j}-${i}" data-value="" style="
+        const card = `<div class="card" id="card-${row}-${column}" data-value="" style="
         width: 69px;
         border: black solid 2px;
         border-radius: 10px;
@@ -19,7 +19,7 @@ for (j = 0; j < 4; j++) {
         top: ${yCord}px;
         left: ${xCord}px;
     "></div>`;
-        let key = `card-${j}-${i}`;
+        let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
         document.getElementById('cards').insertAdjacentHTML('beforeend', card);
     }
@@ -41,8 +41,5 @@ for (card of allCards) {
     })
 }
 console.log(cards);
-const cardElementHTML = createCard(
-    'Card title',
-    'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
-    'https://cdn-images-1.medium.com/max/653/1*wMZnVAEei1xbY1v6sAbYxQ.png');
+
 
