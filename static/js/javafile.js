@@ -1,12 +1,13 @@
+
 let xCord = 50, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
 let cardsId = [];
-for (j = 0; j < 4; j++) {
-    for (i = 0; i < 13; i++) {
+for (row = 0; row < 4; row++) {
+    for (column = 0; column < 13; column++) {
         xPos += 69;
         xCord += 80;
-        const card = `<div class="card" id="card-${j}-${i}" data-value="" style="
+        const card = `<div class="card" id="card-${row}-${column}" data-value="" style="
         width: 69px;
         border: black solid 2px;
         border-radius: 10px;
@@ -20,7 +21,7 @@ for (j = 0; j < 4; j++) {
         top: ${yCord}px;
         left: ${xCord}px;
     "></div>`;
-        let key = `card-${j}-${i}`;
+        let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
         cardsId.push(key);
         document.getElementById('cards').insertAdjacentHTML('beforeend', card);
@@ -41,7 +42,7 @@ for (card of allCards) {
         }
     })
 }
-console.log(cardsId);
+
 
 function stackShuffle(cardsId) {
     let count = cardsId.length;
@@ -49,7 +50,7 @@ function stackShuffle(cardsId) {
         cardsId.push(cardsId.splice(Math.floor(Math.random() * count), 1)[0]);
         count -= 1;
     }
-    console.log(cardsId);
+
     displayCards(cardsId);
 }
 
