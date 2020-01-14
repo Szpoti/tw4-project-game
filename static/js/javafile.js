@@ -3,11 +3,21 @@ let xCord = 50, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
 let cardsId = [];
+
 for (row = 0; row < 4; row++) {
     for (column = 0; column < 13; column++) {
         xPos += 69;
         xCord += 80;
-        const card = `<div class="card" id="card-${row}-${column}" data-value="" style="
+
+        let data_value = xPos / 69;
+
+        if(data_value > 10)
+        {data_value = 10;}
+
+        if(data_value === 1)
+        { data_value = 11;}
+
+        const card = `<div class="card" id="card-${row}-${column}" data-value="${data_value}" style="
         width: 69px;
         border: black solid 2px;
         border-radius: 10px;
@@ -21,6 +31,7 @@ for (row = 0; row < 4; row++) {
         top: ${yCord}px;
         left: ${xCord}px;
     "></div>`;
+
         let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
         cardsId.push(key);
@@ -36,6 +47,7 @@ for (card of allCards) {
     card.addEventListener('click',function (event) {
         if (event.target.style.backgroundPosition === "0px 0px")
         {
+            $("#card").flip();
             event.target.style.backgroundPosition = cards[event.target.id];
         } else {
             event.target.style.backgroundPosition = "0px 0px";
