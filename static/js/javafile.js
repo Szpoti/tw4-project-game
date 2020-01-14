@@ -1,4 +1,3 @@
-
 let xCord = 50, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
@@ -18,19 +17,13 @@ for (row = 0; row < 4; row++) {
         if(data_value === 1)
         { data_value = 11;}
 
-        const card = `<div class="card" id="card-${row}-${column}" data-value="${data_value}" style="
-        width: 69px;
-
-        const card = `<div onclick="this.classList.toggle('flipped')" class="card" id="card-${row}-${column}" data-value="" style="
-
+        const card = `<div onclick="this.classList.toggle('flipped')" class="card" id="card-${row}-${column}" data-value="${data_value}" style="
         border: black solid 2px;
         border-radius: 10px;
         position: absolute;
         cursor: pointer;
         top: ${yCord}px;
         left: ${xCord}px;
-
-    "></div>`;
     ">
     <div class="side front" style="background-position: -${xPos}px ${yPos}px"></div>
     <div class="side back" style="background-position: 0px 0px;"></div>
@@ -46,20 +39,6 @@ for (row = 0; row < 4; row++) {
     xCord = 50;
     yCord += 100;
 }
-let allCards = document.querySelectorAll(".card");
-
-for (card of allCards) {
-    card.addEventListener('click',function (event) {
-        if (event.target.style.backgroundPosition === "0px 0px")
-        {
-            $("#card").flip();
-            event.target.style.backgroundPosition = cards[event.target.id];
-        } else {
-            event.target.style.backgroundPosition = "0px 0px";
-        }
-    })
-}
-
 
 function stackShuffle(cardsId) {
     let count = cardsId.length;
