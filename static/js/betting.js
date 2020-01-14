@@ -7,19 +7,38 @@ let bet20 = document.getElementById('btn20');
 let bet50 = document.getElementById('btn50');
 let bet100 = document.getElementById('btn100');
 bet10.addEventListener('click', function () {
-    my_bet+=10;
-    display.textContent=my_bet;
+   if (my_bet >= my_bank) {
+    document.getElementsByClassName('tokens').disabled = true}
+    else{
+        my_bet+=10;
+        display.textContent=my_bet}
 });
 bet20.addEventListener('click', function () {
-    my_bet+=20;
-    display.textContent=my_bet;
+    if (my_bet >= my_bank) {
+    document.getElementsByClassName('tokens').disabled = true}
+    else if (my_bet+20>my_bank){
+            document.getElementsByClassName('tokens').disabled = true}
+    else{
+        my_bet+=20;
+        display.textContent=my_bet}
 });
 bet50.addEventListener('click', function () {
-    my_bet+=50;
-    display.textContent=my_bet;
+    if (my_bet >= my_bank) {
+    document.getElementsByClassName('tokens').disabled = true}
+    else if (my_bet+50>my_bank){
+            document.getElementsByClassName('tokens').disabled = true}
+    else{
+        my_bet+=50;
+        display.textContent=my_bet}
 });
 bet100.addEventListener('click', function () {
-    my_bet+=100;
-    display.textContent=my_bet;
+    if (my_bet >= my_bank) {
+    document.getElementsByClassName('tokens').disabled = true}
+    else if (my_bet+100>my_bank){
+            document.getElementsByClassName('tokens').disabled = true}
+    else{
+        my_bet+=100;
+        display.textContent=my_bet}
+
 });
-if (my_bet === my_bank)
+
