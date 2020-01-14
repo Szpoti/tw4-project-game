@@ -6,7 +6,7 @@ for (row = 0; row < 4; row++) {
     for (column = 0; column < 13; column++) {
         xPos += 69;
         xCord += 80;
-        const card = `<div onclick="this.classList.toggle('flipped')" class="card" id="card-${j}-${i}" data-value="" style="
+        const card = `<div onclick="this.classList.toggle('flipped')" class="card" id="card-${row}-${column}" data-value="" style="
         border: black solid 2px;
         border-radius: 10px;
         position: absolute;
