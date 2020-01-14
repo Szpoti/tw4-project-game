@@ -17,7 +17,7 @@ for (row = 0; row < 4; row++) {
     <div class="side front" style="background-position: -${xPos}px ${yPos}px"></div>
     <div class="side back" style="background-position: 0px 0px;"></div>
 </div>`;
-        let key = `card-${j}-${i}`;
+        let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
         cardsId.push(key);
         document.getElementById('cards').insertAdjacentHTML('beforeend', card);
