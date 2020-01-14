@@ -9,6 +9,7 @@ for (row = 0; row < 4; row++) {
         xPos += 69;
         xCord += 80;
 
+
         let data_value = xPos / 69;
 
         if(data_value > 10)
@@ -19,18 +20,21 @@ for (row = 0; row < 4; row++) {
 
         const card = `<div class="card" id="card-${row}-${column}" data-value="${data_value}" style="
         width: 69px;
+
+        const card = `<div onclick="this.classList.toggle('flipped')" class="card" id="card-${row}-${column}" data-value="" style="
+
         border: black solid 2px;
         border-radius: 10px;
-        height: 94px;
-        background-image: url('/static/imgs/cards.png');
         position: absolute;
         cursor: pointer;
-        transform: rotate(0deg);
-        background-position: -${xPos}px ${yPos}px;
-        z-index: 1138;
         top: ${yCord}px;
         left: ${xCord}px;
+
     "></div>`;
+    ">
+    <div class="side front" style="background-position: -${xPos}px ${yPos}px"></div>
+    <div class="side back" style="background-position: 0px 0px;"></div>
+</div>`;
 
         let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
@@ -43,6 +47,7 @@ for (row = 0; row < 4; row++) {
     yCord += 100;
 }
 let allCards = document.querySelectorAll(".card");
+
 for (card of allCards) {
     card.addEventListener('click',function (event) {
         if (event.target.style.backgroundPosition === "0px 0px")
