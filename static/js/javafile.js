@@ -2,8 +2,8 @@ let xCord = 50, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
 let cardsId = [];
-for (j = 0; j < 4; j++) {
-    for (i = 0; i < 13; i++) {
+for (row = 0; row < 4; row++) {
+    for (column = 0; column < 13; column++) {
         xPos += 69;
         xCord += 80;
         const card = `<div onclick="this.classList.toggle('flipped')" class="card" id="card-${j}-${i}" data-value="" style="
