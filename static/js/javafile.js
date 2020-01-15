@@ -33,7 +33,7 @@ for (row = 0; row < 4; row++) {
         let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
         cardsId.push(key);
-        document.getElementById('cards').insertAdjacentHTML('beforeend', card);
+        document.getElementById('card-table').insertAdjacentHTML('beforeend', card);
     }
     xPos = 0;
     yPos += 94;
@@ -99,3 +99,20 @@ function alertValue(event) {
     let value = event.target.dataset.value;
     alert(`${value}`);
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+async function delayFunctions() {
+    await sleep(500);
+    flipCards(cardsId);
+    await sleep(500);
+    stackShuffle(cardsId);
+    await sleep(500);
+    intoDeck(cardsId);
+}
+
+delayFunctions();
+
+
