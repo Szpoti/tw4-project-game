@@ -43,7 +43,6 @@ body {
     cursor: pointer;
     position: absolute;
     overflow: auto;
-    z-index: 2;
     backface-visibility: hidden;  /* W3C */
   -webkit-backface-visibility: hidden; /* Safari & Chrome */
   -moz-backface-visibility: hidden; /* Firefox */
