@@ -2,7 +2,7 @@ body {
     background-image: url("/static/imgs/wood-background.jpg");
 }
 
-#cards {
+#card-table {
     position: relative;
     -webkit-perspective: 800px;
     -ms-perspective: 800px;
@@ -10,7 +10,7 @@ body {
     -o-perspective: 800px;
 }
 
-#cards .card.flipped {
+#card-table .card.flipped {
   transform:rotatey(-180deg);
   -ms-transform:rotatey(-180deg); /* IE 9 */
   -moz-transform:rotatey(-180deg); /* Firefox */
@@ -18,7 +18,7 @@ body {
   -o-transform:rotatey(-180deg); /* Opera */
 }
 
-#cards .card {
+#card-table .card {
     width: 69px;
     height: 94px;
     position: absolute;
@@ -37,13 +37,12 @@ body {
     transition: 0.5s;
 }
 
-#cards .card .side {
+#card-table .card .side {
     width: 100%;
     height: 100%;
     cursor: pointer;
     position: absolute;
     overflow: auto;
-    z-index: 2;
     backface-visibility: hidden;  /* W3C */
   -webkit-backface-visibility: hidden; /* Safari & Chrome */
   -moz-backface-visibility: hidden; /* Firefox */
@@ -51,7 +50,7 @@ body {
   -o-backface-visibility: hidden; /* Opera */
 }
 
-#cards .card .back {
+#card-table .card .back {
     background-image: url('/static/imgs/cards.png');
     transform: rotatey(-180deg);
     -ms-transform: rotatey(-180deg); /* IE 9 */
@@ -60,11 +59,11 @@ body {
     -o-transform: rotatey(-180deg); /* Opera */
 }
 
-#cards .card .front {
+#card-table .card .front {
     background-image: url('/static/imgs/cards.png');
 }
 
-#cards .card .back {
+#card-table .card .back {
     background-image: url('/static/imgs/cards.png');
 }
 
