@@ -18,6 +18,6 @@ body {
     text-align: center;
     border: #9C1A1C solid 5px;
 }
-
-.tokens {background: none;
+#display{font-size: xx-large}
+.tokens,.reset {background: none;
         border: none;}
