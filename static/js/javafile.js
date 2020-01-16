@@ -6,12 +6,13 @@ let xPos = 0, yPos = 0;
 let cards = {};
 let cardsId = [];
 let deck = [];
-let hand = [];
+let hand = []; let dealerHand = [];
 let cnt = 1;
 let rnd = 0;
 let handCordX = 450;
+let dealerCordX = 55;
 let handZIndex = 100;
-let handValue = 0;
+let handValue = 0; let dealerHandValue = 0 ;
 for (row = 0; row < 4; row++) {
     for (column = 0; column < 13; column++) {
         xPos += 7.69;
@@ -110,6 +111,20 @@ function intoDeck(cardsId) {
     }
 }
 
+function dealerDraw() {
+    let topCard = document.getElementById(`${cardsId[0]}`);
+    dealerHand.push(topCard.id);
+    cardsId.splice(topCard.id, 1);
+    topCard.style.top = `13.5vh`;
+    topCard.style.left = `${dealerCordX}vh`;
+    topCard.style.zIndex = `${handZIndex}`;
+    handZIndex += 1;
+    dealerCordX += 13;
+    dealerHandValue += Math.ceil(parseFloat(topCard.dataset.value));
+    topCard.removeEventListener('click', drawFromDeck);
+    checkForLose(dealerHandValue);
+}
+
 function drawFromDeck(event) {
     // alert(event.target.parentNode.id);
     // alert(event.target.className);
@@ -124,23 +139,23 @@ function drawFromDeck(event) {
         parent.style.zIndex = `${handZIndex}`;
         handZIndex += 1;
         handCordX += 120;
-        handValue += parseInt(parent.dataset.value);
+        handValue += Math.ceil(parseFloat(parent.dataset.value));
         parent.removeEventListener('click',drawFromDeck);
 
     } else {
         event.target.classList.toggle('flipped');
     }
-    checkForWin(handValue);
+    checkForLose(handValue);
 }
 
 function standButton() {
-    checkForWin(handValue);
+    checkForLose(handValue);
     if (handValue < 21) {
         alert("Your score is: " + handValue)
     }
 }
 
-async function checkForWin(handValue) {
+async function checkForLose(handValue) {
     if (handValue > 21) {
         await sleep(500);
         alert('Sorry, you lost.\n Your hand\'s value is bigger than 21.')
@@ -162,6 +177,11 @@ async function startUpFunctions() {
     stackShuffle(cardsId);
     await sleep(500);
     intoDeck(cardsId);
+    await sleep(500);
+    dealerDraw();
+    await sleep(100);
+    dealerDraw();
+    await sleep(100);
 }
 
 async function newGame() {
