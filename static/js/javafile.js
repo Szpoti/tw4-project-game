@@ -173,6 +173,8 @@ async function newGame() {
     stackShuffle(cardsId);
     await sleep(500);
     intoDeck(cardsId);
+}
+
 let tokens = document.querySelectorAll('.tokens');
 
 for (token of tokens) {
