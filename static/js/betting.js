@@ -52,3 +52,12 @@ reset.addEventListener('click',function () {
     my_bet=0;
     display.textContent='Place your bets.'
 });
+start.addEventListener('click',function () {
+  var x = document.getElementById("playing");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  my_bank=my_bank-my_bet
+});
