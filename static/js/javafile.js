@@ -1,21 +1,25 @@
+let my_bet = 0;
+let my_bank = 1000;
+
 let xCord = 40, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
 let cardsId = [];
 let deck = [];
-let hand = [];
+let hand = []; let dealerHand = [];
 let cnt = 1;
 let rnd = 0;
 let handCordX = 450;
+let dealerCordX = 55;
 let handZIndex = 100;
-let handValue = 0;
+let handValue = 0; let dealerHandValue = 0 ;
 for (row = 0; row < 4; row++) {
     for (column = 0; column < 13; column++) {
-        xPos += 103.5;
+        xPos += 7.69;
         xCord += 110;
 
 
-        let data_value = xPos / 103.5;
+        let data_value = xPos / 7.69;
 
         if(data_value > 10)
         {data_value = 10;}
@@ -31,8 +35,8 @@ for (row = 0; row < 4; row++) {
         top: ${yCord}px;
         left: ${xCord}px;
     ">
-    <div class="side front" style="background-position: -${xPos}px ${yPos}px"></div>
-    <div class="side back" style="background-position: 0px 0px;"></div>
+    <div class="side front" style="background-position: ${xPos}% ${yPos}%; background-size: 1400%"></div>
+    <div class="side back" style="background-size: 1400%""></div>
 </div>`;
         let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
@@ -41,7 +45,7 @@ for (row = 0; row < 4; row++) {
         document.getElementById('card-table').insertAdjacentHTML('beforeend', card);
     }
     xPos = 0;
-    yPos += 141;
+    yPos += 33.3;
     xCord = 40;
     yCord += 140;
 }
@@ -107,6 +111,20 @@ function intoDeck(cardsId) {
     }
 }
 
+function dealerDraw() {
+    let topCard = document.getElementById(`${cardsId[0]}`);
+    dealerHand.push(topCard.id);
+    cardsId.splice(topCard.id, 1);
+    topCard.style.top = `13.5vh`;
+    topCard.style.left = `${dealerCordX}vh`;
+    topCard.style.zIndex = `${handZIndex}`;
+    handZIndex += 1;
+    dealerCordX += 13;
+    dealerHandValue += Math.ceil(parseFloat(topCard.dataset.value));
+    topCard.removeEventListener('click', drawFromDeck);
+    checkForLose(dealerHandValue);
+}
+
 function drawFromDeck(event) {
     // alert(event.target.parentNode.id);
     // alert(event.target.className);
@@ -121,19 +139,30 @@ function drawFromDeck(event) {
         parent.style.zIndex = `${handZIndex}`;
         handZIndex += 1;
         handCordX += 120;
-        handValue += parseInt(parent.dataset.value);
+        handValue += Math.ceil(parseFloat(parent.dataset.value));
         parent.removeEventListener('click',drawFromDeck);
 
     } else {
         event.target.classList.toggle('flipped');
     }
-    checkForWin(handValue);
+    checkForLose(handValue);
 }
 
-async function checkForWin(handValue) {
+function standButton() {
+    checkForLose(handValue);
+    if (handValue < 21) {
+        alert("Your score is: " + handValue)
+    }
+}
+
+async function checkForLose(handValue) {
     if (handValue > 21) {
         await sleep(500);
         alert('Sorry, you lost.\n Your hand\'s value is bigger than 21.')
+    }
+    else if (handValue === 21) {
+        await sleep(500);
+        alert('You WON!');
     }
 }
 
@@ -148,7 +177,59 @@ async function startUpFunctions() {
     stackShuffle(cardsId);
     await sleep(500);
     intoDeck(cardsId);
+    await sleep(500);
+    dealerDraw();
+    await sleep(100);
+    dealerDraw();
+    await sleep(100);
 }
+
+async function newGame() {
+    await sleep(500);
+    flipCards(hand);
+    await sleep(500);
+    displayCards(cardsId);
+    await sleep(500);
+    stackShuffle(cardsId);
+    await sleep(500);
+    intoDeck(cardsId);
+}
+
+let tokens = document.querySelectorAll('.tokens');
+
+for (token of tokens) {
+    token.addEventListener('click', function (event) {
+        if (event.target.id === 'reset') {
+            my_bet = 0;
+        }
+        if (my_bet >= my_bank) { console.log('off') }
+        else {
+            if (event.target.id === 'btn10') {
+                my_bet += 10;
+            }
+            else if (event.target.id === 'btn20') {
+                if (my_bet+20>my_bank){console.log('off')}
+                else {
+                    my_bet += 20;
+                }
+            }
+            else if (event.target.id === 'btn50') {
+                if (my_bet+50>my_bank){console.log('off')}
+                else {
+                    my_bet += 50;
+                }
+            }
+            else if (event.target.id === 'btn100') {
+                if (my_bet+100>my_bank){console.log('off')}
+                else {
+                    my_bet += 100;
+                }
+            }
+            else if (event.target.id === 'all_in') {
+                my_bet = my_bank;
+                }
+            display.textContent=`Your bet is ${my_bet}$`;
+        }})}
 
 
 window.onload = startUpFunctions();
