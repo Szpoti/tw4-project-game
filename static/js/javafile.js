@@ -130,6 +130,13 @@ function drawFromDeck(event) {
     checkForWin(handValue);
 }
 
+function standButton() {
+    checkForWin(handValue);
+    if (handValue < 21) {
+        alert("Your score is: " + handValue)
+    }
+}
+
 async function checkForWin(handValue) {
     if (handValue > 21) {
         await sleep(500);
