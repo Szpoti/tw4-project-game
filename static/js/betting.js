@@ -8,6 +8,7 @@ let bet50 = document.getElementById('btn50');
 let bet100 = document.getElementById('btn100');
 let all_in = document.getElementById('all_in');
 let reset = document.getElementById('reset');
+let start = document.getElementById('start');
 bet10.addEventListener('click', function () {
    if (my_bet >= my_bank) {
     document.getElementsByClassName('tokens').disabled = true}
@@ -50,4 +51,13 @@ all_in.addEventListener('click',function () {
 reset.addEventListener('click',function () {
     my_bet=0;
     display.textContent='Place your bets.'
+});
+start.addEventListener('click',function () {
+  var x = document.getElementById("playing");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  my_bank=my_bank-my_bet
 });

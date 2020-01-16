@@ -1,6 +1,6 @@
 body {
     background-image: url("/static/imgs/casinobgfinal.jpg");
-    background-size: unset;
+    background-size: cover;
 
 }
 
@@ -96,15 +96,8 @@ body {
     max-height: 140px;
 }
 
-.main_stuff {
-    position: fixed
-}
 
 .table {
     border: black solid 3px;
     border-radius: 5px;
-}
-
-body {
-    padding: 0
 }
