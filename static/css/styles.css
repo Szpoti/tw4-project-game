@@ -1,5 +1,7 @@
 body {
-    background-image: url("/static/imgs/wood-background.jpg");
+    background-image: url("/static/imgs/casinobg3.jpg");
+    background-size: cover;
+    background-position: inherit;
 }
 
 #card-table {
@@ -51,7 +53,7 @@ body {
 }
 
 #card-table .card .back {
-    background-image: url('/static/imgs/cards.png');
+    background-image: url('/static/imgs/cardtesst1.png');
     transform: rotatey(-180deg);
     -ms-transform: rotatey(-180deg); /* IE 9 */
     -moz-transform: rotatey(-180deg); /* Firefox */
@@ -94,9 +96,9 @@ max-height: 140px}
 }
 .main_stuff{display: flex;
 position: fixed}
-.table{ margin-top: 10.8%;
-    margin-right: 0%;
-    width: 800px;
-    position: fixed
-}
-body{padding: 0}
+/*.table{ margin-top: 10.8%;*/
+/*    margin-right: 0%;*/
+/*    width: 800px;*/
+/*    position: fixed*/
+/*}*/
+/*body{padding: 0}*/
