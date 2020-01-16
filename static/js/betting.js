@@ -8,6 +8,7 @@ let bet50 = document.getElementById('btn50');
 let bet100 = document.getElementById('btn100');
 let all_in = document.getElementById('all_in');
 let reset = document.getElementById('reset');
+
 bet10.addEventListener('click', function () {
    if (my_bet >= my_bank) {
     document.getElementsByClassName('tokens').disabled = true}

@@ -9,11 +9,22 @@
 </head>
 <body>
 <h1 class="welcome">Welcome, have a seat!</h1>
+<div id="display">Place your bets.</div>
+    <div class="first-set">
+        <div class="tokens" id="btn10" style="background-image: url('/static/imgs/token10.png')"></div>
+        <div class="tokens" id="btn20" style="background-image: url('/static/imgs/token20.png')"></div>
+        <div class="tokens" id="btn50" style="background-image: url('/static/imgs/token50.png')"></div>
+        <div class="tokens" id="btn100" style="background-image: url('/static/imgs/token100.png')"></div>
+        <div class="tokens" id="all_in" style="background-image: url('/static/imgs/finalallin1.png')"></div>
+        <div class="tokens" id="reset" style="background-image: url('/static/imgs/reset1.png')"></div>
+    </div>
 
-<button onclick="stackShuffle(cardsId)">Shuffle the cards</button>
-<button onclick="flipCards(cardsId)">Flip the cards</button>
-<button onclick="displayCards(cardsId)">Display the cards</button>
-<button onclick="intoDeck(cardsId)">Into Deck</button>
-<div id="card-table"></div>
+    <div id="card-table"></div>
+
+    <button style="float: left" onclick="stackShuffle(cardsId)">Shuffle the cards</button>
+    <button style="float: left" onclick="flipCards(cardsId)">Flip the cards</button>
+    <button style="float: left" onclick="displayCards(cardsId)">Display the cards</button>
+    <button style="float: left" onclick="intoDeck(cardsId)">Into Deck</button>
+
 </body>
 </html>

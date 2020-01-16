@@ -1,3 +1,6 @@
+let my_bet = 0;
+let my_bank = 1000;
+
 let xCord = 40, yCord = 100;
 let xPos = 0, yPos = 0;
 let cards = {};
@@ -11,11 +14,11 @@ let handZIndex = 100;
 let handValue = 0;
 for (row = 0; row < 4; row++) {
     for (column = 0; column < 13; column++) {
-        xPos += 103.5;
+        xPos += 7.69;
         xCord += 110;
 
 
-        let data_value = xPos / 103.5;
+        let data_value = xPos / 7.69;
 
         if(data_value > 10)
         {data_value = 10;}
@@ -31,8 +34,8 @@ for (row = 0; row < 4; row++) {
         top: ${yCord}px;
         left: ${xCord}px;
     ">
-    <div class="side front" style="background-position: -${xPos}px ${yPos}px"></div>
-    <div class="side back" style="background-position: 0px 0px;"></div>
+    <div class="side front" style="background-position: ${xPos}% ${yPos}%; background-size: 1400%"></div>
+    <div class="side back" style="background-size: 1400%""></div>
 </div>`;
         let key = `card-${row}-${column}`;
         cards[key] = `-${xPos}px ${yPos}px`;
@@ -41,7 +44,7 @@ for (row = 0; row < 4; row++) {
         document.getElementById('card-table').insertAdjacentHTML('beforeend', card);
     }
     xPos = 0;
-    yPos += 141;
+    yPos += 33.3;
     xCord = 40;
     yCord += 140;
 }
@@ -149,6 +152,42 @@ async function startUpFunctions() {
     await sleep(500);
     intoDeck(cardsId);
 }
+
+let tokens = document.querySelectorAll('.tokens');
+
+for (token of tokens) {
+    token.addEventListener('click', function (event) {
+        if (event.target.id === 'reset') {
+            my_bet = 0;
+        }
+        if (my_bet >= my_bank) { console.log('off') }
+        else {
+            if (event.target.id === 'btn10') {
+                my_bet += 10;
+            }
+            else if (event.target.id === 'btn20') {
+                if (my_bet+20>my_bank){console.log('off')}
+                else {
+                    my_bet += 20;
+                }
+            }
+            else if (event.target.id === 'btn50') {
+                if (my_bet+50>my_bank){console.log('off')}
+                else {
+                    my_bet += 50;
+                }
+            }
+            else if (event.target.id === 'btn100') {
+                if (my_bet+100>my_bank){console.log('off')}
+                else {
+                    my_bet += 100;
+                }
+            }
+            else if (event.target.id === 'all_in') {
+                my_bet = my_bank;
+                }
+            display.textContent=`Your bet is ${my_bet}$`;
+        }})}
 
 
 window.onload = startUpFunctions();
