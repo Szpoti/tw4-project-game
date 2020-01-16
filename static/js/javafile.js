@@ -133,10 +133,21 @@ function drawFromDeck(event) {
     checkForWin(handValue);
 }
 
+function standButton() {
+    checkForWin(handValue);
+    if (handValue < 21) {
+        alert("Your score is: " + handValue)
+    }
+}
+
 async function checkForWin(handValue) {
     if (handValue > 21) {
         await sleep(500);
         alert('Sorry, you lost.\n Your hand\'s value is bigger than 21.')
+    }
+    else if (handValue === 21) {
+        await sleep(500);
+        alert('You WON!');
     }
 }
 
@@ -153,6 +164,15 @@ async function startUpFunctions() {
     intoDeck(cardsId);
 }
 
+async function newGame() {
+    await sleep(500);
+    flipCards(hand);
+    await sleep(500);
+    displayCards(cardsId);
+    await sleep(500);
+    stackShuffle(cardsId);
+    await sleep(500);
+    intoDeck(cardsId);
 let tokens = document.querySelectorAll('.tokens');
 
 for (token of tokens) {
