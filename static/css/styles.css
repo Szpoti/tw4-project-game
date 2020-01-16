@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
 body {
     background-image: url("/static/imgs/wood-background.jpg");
     background-size: unset;
@@ -103,6 +105,24 @@ body {
 .first-set {
     display: flex;
     height: 7vh;
+}
+
+.start {
+    cursor: pointer;
+    background-color: rgba(236, 48, 20, 0.9);
+    color: black;
+    padding: 18px 20px;
+    font-size: 1em;
+    font-family: "Mukta";
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 20px;
+    border-radius: 100px;
+}
+
+.start:hover {
+    box-shadow: 5px 5px gray;
 }
 
 body {
