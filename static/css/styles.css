@@ -1,5 +1,7 @@
 body {
-    background-image: url("/static/imgs/wood-background.jpg");
+    background-image: url("/static/imgs/casinobg(1).jpg");
+    background-size: unset;
+
 }
 
 #card-table {
@@ -19,8 +21,8 @@ body {
 }
 
 #card-table .card {
-    width: 69px;
-    height: 94px;
+    width: 103px;
+    height: 140px;
     position: absolute;
     cursor: pointer;
     top: 303px;
@@ -51,7 +53,7 @@ body {
 }
 
 #card-table .card .back {
-    background-image: url('/static/imgs/cards.png');
+    background-image: url('/static/imgs/cards2.png');
     transform: rotatey(-180deg);
     -ms-transform: rotatey(-180deg); /* IE 9 */
     -moz-transform: rotatey(-180deg); /* Firefox */
@@ -60,43 +62,49 @@ body {
 }
 
 #card-table .card .front {
-    background-image: url('/static/imgs/cards.png');
+    background-image: url('/static/imgs/cards2.png');
 }
 
 #card-table .card .back {
-    background-image: url('/static/imgs/cards.png');
+    background-image: url('/static/imgs/cards2.png');
 }
 
 .welcome {
     text-align: center;
     border: #9C1A1C solid 5px;
 }
-#display{font-size: 80px;
-    float: top;
+#display{
+    font-size: 40px;
     border: goldenrod;
     border-style: groove;
     border-radius: 15px;
     background: lightgrey;
-    width: 50%}
-.tokens,.reset {background: none;
-        border: none; }
-
-#tokenbtn { width: 100px;
-        height: 100px;
+    width: 50%
+}
+.tokens,.reset {
+    background: none;
+        border: none;
 }
 
-#all_in{max-width: 140px;
-max-height: 140px}
-#casino_girl {max-height:80%;
-    float: left;
-    padding-top: 20px;
-    padding-right: 30px;
+.tokenbtn {
+    width: 100px;
+    height: 100px;
 }
-.main_stuff{display: flex;
-position: fixed}
-.table{ margin-top: 10.8%;
-    margin-right: 0%;
-    width: 800px;
+
+.all_in{
+    max-width: 140px;
+    max-height: 140px;
+}
+
+.main_stuff {
     position: fixed
 }
-body{padding: 0}
+
+.table {
+    border: black solid 3px;
+    border-radius: 5px;
+}
+
+body {
+    padding: 0
+}
