@@ -6,7 +6,7 @@ let deck = [];
 let hand = [];
 let cnt = 1;
 let rnd = 0;
-let handCordX = 200;
+let handCordX = 450;
 let handZIndex = 100;
 let handValue = 0;
 for (row = 0; row < 4; row++) {
@@ -68,6 +68,7 @@ function displayCards(cardsId) {
     for (card of hand) {
         cardsId.push(card);
     }
+    handCordX = 450;
     handValue = 0;
     hand = [];
     xCord = 40; yCord = 100;
@@ -76,7 +77,6 @@ function displayCards(cardsId) {
         let card = document.getElementById(`${id}`);
         card.removeEventListener('click',drawFromDeck);
         handZIndex = 100;
-        handCordX = 200;
         xCord += 110;
         card.style.top = `${yCord}px`;
         card.style.left = `${xCord}px`;
@@ -91,9 +91,8 @@ function displayCards(cardsId) {
     }
 
 function intoDeck(cardsId) {
-    handCordX = 100;
     console.log(cardsId);
-    let xCord = 500, yCord = 250;
+    let xCord = 40, yCord = 390;
     let count = 52;
     for (id of cardsId) {
         rnd = Math.floor(Math.random() * cardsId.length);
@@ -114,14 +113,14 @@ function drawFromDeck(event) {
     let parent = event.target.parentNode;
     if (parent.id !== 'card-table') {
         hand.push(parent.id);
-        console.log(cardsId);
+        //console.log(cardsId);
         cardsId.splice(parent.id, 1);
-        console.log(cardsId);
+        //console.log(cardsId);
         parent.style.left = `${handCordX}px`;
-        parent.style.top = '400px';
+        parent.style.top = '645px';
         parent.style.zIndex = `${handZIndex}`;
         handZIndex += 1;
-        handCordX += 40;
+        handCordX += 120;
         handValue += parseInt(parent.dataset.value);
         parent.removeEventListener('click',drawFromDeck);
 
