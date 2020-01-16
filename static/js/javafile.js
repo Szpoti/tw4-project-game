@@ -135,6 +135,10 @@ async function checkForWin(handValue) {
         await sleep(500);
         alert('Sorry, you lost.\n Your hand\'s value is bigger than 21.')
     }
+    else if (handValue === 21) {
+        await sleep(500);
+        alert('You WON!');
+    }
 }
 
 function sleep(ms) {
@@ -150,6 +154,17 @@ async function startUpFunctions() {
     intoDeck(cardsId);
 }
 
+async function newGame() {
+    await sleep(500);
+    flipCards(hand);
+    await sleep(500);
+    displayCards(cardsId);
+    await sleep(500);
+    stackShuffle(cardsId);
+    await sleep(500);
+    intoDeck(cardsId);
+
+}
 
 window.onload = startUpFunctions();
 
