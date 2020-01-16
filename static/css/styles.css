@@ -81,13 +81,21 @@ body {
     border: #9C1A1C solid 5px;
 }
 #display{
-    font-size: 40px;
+    font-size: 5vh;
     border: goldenrod;
     border-style: groove;
     border-radius: 15px;
     background: lightgrey;
     width: 50%
+}
 
+#bank {
+    font-size: 5vh;
+    border: goldenrod;
+    border-style: groove;
+    border-radius: 15px;
+    background: lightgrey;
+    width: 30%
 }
 
 .table {
