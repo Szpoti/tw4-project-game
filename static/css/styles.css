@@ -14,6 +14,7 @@ body {
     -ms-perspective: 800px;
     -moz-perspective: 800px;
     -o-perspective: 800px;
+    display: flex;
 }
 
 #card-table .card.flipped {
@@ -109,3 +110,11 @@ body {
     padding: 0;
     position: relative;
 }
+
+#casino_bitch{
+    top: 13%;
+    left: 86%;
+    float: right;
+    position: absolute;
+    height: 70vh;
+    width: 80vh;}
